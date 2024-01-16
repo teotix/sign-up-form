@@ -1,8 +1,62 @@
+:root {
+    --orange: rgb(209, 103, 33);
+    --lightorange: rgb(247, 121, 38);
+    --darkorange: rgb(170, 68, 0);
+    --white: rgb(255, 255, 255);
+    --gray: rgb(129, 129, 129);
+    --darkgray: rgb(73, 73, 73);
+    --red: rgb(255, 0, 0);
+}
+
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
+body {
+    background-color: var(--gray);
+    overflow: hidden;
+}
+
+.slideUp-animation {
+    animation: 1.5s 1 forwards cubic-bezier(0.42, 0, 0.58, 1.0) slideUp;
+    animation-delay: 0s;
+}
+
+.mismatched-pass {
+
+}
+
+.mismatched-pass::after {
+    content: "⚠ Passwords don't match";
+    display: block;
+    width: 160px;
+    color: var(--red);
+    position: absolute;
+    z-index: 2;
+    top: 3.1rem;
+    font-size: max(1.6vh, 0.8rem);
+}
+
+.invalid-email {
+
+}
+
+.invalid-email::after {
+    content: '⚠ Invalid email';
+    display: block;
+    width: 100px;
+    color: var(--red);
+    position: absolute;
+    z-index: 2;
+    top: 3.1rem;
+    font-size: max(1.6vh, 0.8rem);
+}
+
+.valid {
+    background-color: var(--white);
+}
 
 .main {
     display: flex;
@@ -10,12 +64,16 @@
 }
 
 .image {
-    width: 35%;
+    z-index: 3;
+    font-family: 'Toony';
+    height: 100%;
+    width: 38%;
     display: flex;
     justify-content: center;
     background-image: url(images/STIME_24_1000by667px_1000x.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     img {
-        height: 90%;
         height: min(7rem, 20vw)
     };
     p {
@@ -35,27 +93,109 @@
 }
 
 .form {
-    width: 65%;
+    width: 62%;
 }
 
 .form-header {
-    margin-left: 3rem;
+    padding-left: 3rem;
 }
 
-.form-header h2 {
+.form h2 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: min(55ch, 100%)
 }
 
 .form-top {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    gap: 4rem;
     height: 70%;
-    box-shadow: 0px 2px 10px rgb(197, 197, 197);
+    box-shadow: 2px 2px 15px var(--orange);
+}
+
+.form-data {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    form {
+        display: flex;
+        gap: 5rem
+    };
+    .left, .right {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+        width: 250px;
+        div {
+            position: relative;
+        }
+    };
+    input {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        outline: none;
+        width: 100%;
+        height: 1.8rem;
+        border: none;
+        border-radius: 0.3rem;
+    }
+    input:focus {
+        border: 0.5px solid var(--white);
+        box-shadow: 2px 2px 10px var(--orange);
+    };
 }
 
 .form-submit {
-    margin-left: 3rem;
+    z-index: 1;
+    background-color: var(--darkgray);
+    padding-left: 3rem;
+    padding-top: 2rem;
     height: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    button {
+        border: none;
+        background-color: var(--orange);
+        border-radius: 0.5rem;
+        width: max(10rem, 8vw);
+        height: max(4.5vh, 2.3rem)
+    };
+    button:hover {
+        background-color: var(--darkorange);
+    };
+    p {
+        color: var(--white);
+    };
+    a {
+        text-decoration: none;
+        color: var(--lightorange);
+    }
+    a:visited {
+        color: var(--orange);
+    }
+}
+
+@font-face {
+    font-family: "Toony";
+    src: url("fonts/ToonyLine_PERSONAL_USE_ONLY.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: inherit;
+    }
 }

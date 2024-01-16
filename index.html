@@ -1,33 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="main">
-    <div class="image">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="image">
         <div class="logo-container">
-            <img src="images/portrait-user-svgrepo-com.svg" alt="logo">
-            <p>Form</p>
+          <img src="images/portrait-user-svgrepo-com.svg" alt="logo" />
+          <p>Form</p>
         </div>
-    </div>
-    <div class="form">
+      </div>
+      <div class="form slideUp-animation">
         <div class="form-top">
-            <div class="form-header">
-                <h2>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</h2>
-                <h2>Sign up <em>now</em> to get started</h2>
-                <br>
-                <h2>You know you want to.</h2>
-            </div>
-            <div class="form-data">
-                <h2>Let's do this!</h2>
-            </div>
+          <div class="form-header">
+            <h2>
+              This is not a real online service! You know you need something
+              like this in your life to help you realize your deepest dreams.
+            </h2>
+            <h2>Sign up <em>now</em> to get started</h2>
+            <br />
+            <h2>You know you want to.</h2>
+          </div>
+          <div class="form-data">
+            <h2>Let's do this!</h2>
+            <form
+              id="signup-form"
+              action="https://httpbin.org/post"
+              method="post"
+            >
+              <div class="left">
+                <div>
+                  <label for="name">First Name *</label
+                  ><input id="name" type="text" required />
+                </div>
+                <div>
+                  <label for="email">Email *</label
+                  ><input id="email" type="email" required /><span
+                    id="emailspan"
+                  ></span>
+                </div>
+                <div>
+                  <label for="user-password">Password *</label
+                  ><input id="user-password" type="password" required />
+                </div>
+              </div>
+              <div class="right">
+                <div>
+                  <label for="lname">Last Name *</label
+                  ><input id="lname" type="text" required />
+                </div>
+                <div>
+                  <label for="phone">Phone Number</label
+                  ><input id="phone" type="tel" />
+                </div>
+                <div>
+                  <label for="user-password-confirm">Confirm Password *</label
+                  ><input
+                    id="user-password-confirm"
+                    type="password"
+                    required
+                  /><span id="passmatch"></span>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="form-submit"></div>
+        <div class="form-submit">
+          <button form="signup-form" type="submit">Create Account</button>
+          <p>Already have an account? <a href="">Log in</a></p>
+        </div>
+      </div>
     </div>
-  </div>  
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
